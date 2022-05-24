@@ -5,7 +5,7 @@
 			<nav
 				class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
 				<a class="navbar-brand" href="#">
-					<img src="images/zhuye/biaoti.jpg" alt="logo" style="width:40px;">
+					<img src="${pageContext.request.contextPath}/images/zhuye/biaoti.jpg" alt="logo" style="width:40px;">
 				</a>
 				<a class="navbar-brand"
 					href="<%=request.getContextPath() %>/homepage.action"><span
