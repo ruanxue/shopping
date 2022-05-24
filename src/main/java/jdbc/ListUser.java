@@ -69,7 +69,9 @@ public class ListUser extends HttpServlet {
 			out.println("</tr>");
 		}
 		out.println("</table>");
+		out.println("返回<a href = homepage.action>首页</a>");
 		out.println("</div>");
+
 	}
 
 	/**

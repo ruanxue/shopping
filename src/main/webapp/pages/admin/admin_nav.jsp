@@ -12,7 +12,7 @@
 					<li
 						class="nav-item <%="user_m".equals(request.getParameter("param_fun")) ? "active" : ""%>">
 						<a class="nav-link"
-						href="<%=request.getContextPath()%>/admin/admin_list_user.action">用户管理</a>
+						href="<%=request.getContextPath()%>/list_user">用户管理</a>
 					</li>
 					<li
 						class="nav-item <%="food_t_m".equals(request.getParameter("param_fun")) ? "active" : ""%>">
