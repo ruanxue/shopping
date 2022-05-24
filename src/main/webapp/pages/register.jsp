@@ -19,7 +19,6 @@
                             <input class="form-control" id="username" name="un" type="text"
                                    required /> <span class="text-danger" id="checkInfo"></span>
                         </div>
-
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">密码</label>
