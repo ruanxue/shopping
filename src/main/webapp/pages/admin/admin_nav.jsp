@@ -4,12 +4,9 @@
 		<div class="col-md-12 col-12">
 			<nav
 				class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-				<a class="navbar-brand" href="#">
-					<img src="images/zhuye/biaoti.jpg" alt="logo" style="width:40px;">
+				<a class="navbar-brand" href="<%=request.getContextPath()%>/homepage.action">
+					<img src="${pageContext.request.contextPath}/images/zhuye/biaoti.jpg" alt="logo" style="width:90px;">
 				</a>
-				<a class="navbar-brand"
-					href="<%=request.getContextPath()%>/homepage.action"><span
-					class="text-info">网络点餐系统</span></a>
 				<ul class="navbar-nav mr-auto">
 					<li
 						class="nav-item <%="user_m".equals(request.getParameter("param_fun")) ? "active" : ""%>">

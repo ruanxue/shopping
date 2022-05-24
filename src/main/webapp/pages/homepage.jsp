@@ -15,9 +15,9 @@
 		<div class="row">
 			<div class="col-md-12 col-12">
 				<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-					<img src="images/zhuye/biaoti.jpg">
-					<a class="navbar-brand" href="homepage.action"><span
-						class="text-info">网络点餐系统</span></a>
+					<a class="navbar-brand" href="<%=request.getContextPath() %>/homepage.action">
+						<img src="${pageContext.request.contextPath}/images/zhuye/biaoti.jpg" alt="logo" style="width:120px;">
+					</a>
 					<ul class="nav justify-content-end">
 						<li class="nav-item"><a class="nav-link" href="#"
 							data-toggle="modal" data-target="#loginModal">登录</a></li>
