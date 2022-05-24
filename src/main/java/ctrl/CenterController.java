@@ -72,7 +72,7 @@ public class CenterController extends HttpServlet {
 					session.setAttribute("ident", ident);
 					if (ident.equals("1")) {
 						// 管理员
-						response.sendRedirect(request.getContextPath() + "/admin/admin_index.action");
+						response.sendRedirect(request.getContextPath() + "/homepage.action");
 					} else {
 						// 普通用户
 						response.sendRedirect(request.getContextPath() + "/user/user_index.action");
