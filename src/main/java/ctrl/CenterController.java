@@ -15,23 +15,40 @@ import javax.servlet.http.Part;
 import model.*;
 import util.FileUploadUtil;
 
-
+/**
+ * Servlet implementation class CenterController
+ */
 @WebServlet("*.action")
 @MultipartConfig(maxFileSize = 5 * 1024 * 1024)
 public class CenterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
 	public CenterController() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doPost(request, response);
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 		String path = request.getServletPath();
 		path = path.substring(path.lastIndexOf('/') + 1, path.indexOf(".action"));
@@ -134,6 +151,46 @@ public class CenterController extends HttpServlet {
 			FoodTypeService ft = new FoodTypeService();
 			request.setAttribute("types", ft.getAllTypes());
 			request.getRequestDispatcher("/pages/admin/admin_list_food.jsp").forward(request, response);
+		} else if (path.equals("admin_list_food_page")) {
+			FoodService f = new FoodService();
+			String s_fn = request.getParameter("s_fn");
+			String s_type = request.getParameter("s_type");
+			String curPage = request.getParameter("curPage");
+			request.setAttribute("pages", f.getFoods(s_fn, s_type, curPage));
+			FoodTypeService ft = new FoodTypeService();
+			request.setAttribute("types", ft.getAllTypes());
+			request.getRequestDispatcher("/pages/admin/admin_list_food_page.jsp").forward(request, response);
+		} else if (path.equals("admin_del_food")) {
+			String id = request.getParameter("id");
+			FoodService f = new FoodService();
+			int r = f.delFood(id);
+			if (r == 1) {
+				request.setAttribute("msg", "删除菜品成功！");
+			} else {
+				request.setAttribute("msg", "删除菜品失败！");
+			}
+			request.setAttribute("href", request.getContextPath() + "/admin/admin_list_food.action");
+			request.getRequestDispatcher("/pages/result.jsp").forward(request, response);
+		} else if (path.equals("admin_del_food_ajax")) {
+			String id = request.getParameter("id");
+			FoodService f = new FoodService();
+			int r = f.delFood(id);
+			if (r == 1) {
+				out.print("{\"msg\":\"删除菜品成功！\",\"id\":" + id + "}");
+			} else {
+				out.print("{\"msg\":\"删除菜品失败！\",\"id\":-1}");
+			}
+			out.flush();
+		} else if (path.equals("check_username")) {
+			String username = request.getParameter("username");
+			UserService u = new UserService();
+			boolean r = u.check(username);
+			if (r) {
+				out.print("{\"msg\":\"用户名可用\",\"r\":true}");
+			} else {
+				out.print("{\"msg\":\"用户名不可用\",\"r\":false}");
+			}
+			out.flush();
 		} else if (path.equals("admin_edit_food")) {
 			String id = request.getParameter("id");
 			FoodTypeService ft = new FoodTypeService();
@@ -153,8 +210,10 @@ public class CenterController extends HttpServlet {
 				Part img = request.getPart("img");
 				// 判断上传文件的扩展名是否符合要求
 				String fileExtName = FileUploadUtil.getFileExtName(img);
-				if (!fileExtName.equals("") && !fileExtName.equalsIgnoreCase(".jpg")
-						&& !fileExtName.equalsIgnoreCase(".png") && !fileExtName.equalsIgnoreCase(".gif")) {
+				if(!fileExtName.equals("")
+						&& !fileExtName.equalsIgnoreCase(".jpg")
+						&& !fileExtName.equalsIgnoreCase(".png")
+						&& !fileExtName.equalsIgnoreCase(".gif")) {
 					request.setAttribute("msg", "上传文件的扩展名应为jpg,png或gif！");
 					request.setAttribute("href", "javascript:history.back()");
 					request.getRequestDispatcher("/pages/result.jsp").forward(request, response);
@@ -172,6 +231,39 @@ public class CenterController extends HttpServlet {
 				request.setAttribute("href", "javascript:history.back()");
 				request.getRequestDispatcher("/pages/result.jsp").forward(request, response);
 			}
+		} else if (path.equals("register")) {
+			String un = request.getParameter("un");
+			String pw = request.getParameter("pw");
+			String tel = request.getParameter("tel");
+			String addr = request.getParameter("addr");
+			UserService u = new UserService();
+			int r = u.register(un, pw, tel, addr);
+			if (r == 1) {
+				request.setAttribute("msg", "注册成功！");
+			} else {
+				request.setAttribute("msg", "注册失败！");
+			}
+			request.setAttribute("href", request.getContextPath() + "/homepage.action");
+			request.getRequestDispatcher("/pages/result.jsp").forward(request, response);
+		}  else if (path.equals("user_index")) {
+			request.getRequestDispatcher("/pages/user/user_index.jsp").forward(request, response);
+		} else if(path.equals("user_edit_info")) {
+			String userid = (String) session.getAttribute("loginID");
+			request.setAttribute("user", new UserService().getUserById(userid));
+			request.getRequestDispatcher("/pages/user/user_edit_info.jsp").forward(request, response);
+		} else if(path.equals("user_update_info")) {
+			String pw = request.getParameter("pw");
+			String tel = request.getParameter("tel");
+			String addr = request.getParameter("addr");
+			String id = (String) session.getAttribute("loginID");
+			int r = new UserService().updateUser(pw, tel, addr, id);
+			if (r == 1) {
+				request.setAttribute("msg", "修改用户资料成功！");
+			} else {
+				request.setAttribute("msg", "修改用户资料失败！");
+			}
+			request.setAttribute("href", "javascript:history.back()");
+			request.getRequestDispatcher("/pages/result.jsp").forward(request, response);
 		}
 	}
 
