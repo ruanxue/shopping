@@ -25,13 +25,13 @@
 								<thead>
 									<tr>
 										<th>#</th>
-										<th>菜名</th>
-										<th>特色</th>
-										<th>主料</th>
+										<th>商品名称</th>
+										<th>简介</th>
+										<th>型号</th>
 										<th>价格</th>
 										<th>分类</th>
 										<th>图片</th>
-										<th>点餐率</th>
+										<th>购买率</th>
 										<th>备注</th>
 										<th>选择</th>
 									</tr>

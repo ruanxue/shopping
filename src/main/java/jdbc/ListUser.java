@@ -40,17 +40,27 @@ public class ListUser extends HttpServlet {
 		// 调用业务逻辑类完成用户信息查询
 		UserService us = new UserService();
 		List<Map<String, String>> users = us.getUsers(s_un);
+		out.println("<title>用户管理</title>");
+		out.println("<link rel=\"stylesheet\" href=\"https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css\">");
+		out.println("<script src=\"https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js\"></script>");
+		out.println("<script src=\"https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js\"></script>");
+		out.println("<script src=\"https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js\"></script>");
 		// 在表格中显示用户信息列表
-		out.println("<div align=center>");
+		out.println("<div class=\"container-fluid\"><div class=\"row\"><div class=\"col-md-12 col-12\">");
+		out.println("<nav class=\"navbar navbar-expand-lg navbar-light bg-light justify-content-between\">");
+		out.println("<a class=\"navbar-brand\" href=\"homepage.action\"><span class=\"text-info\">网络点餐系统</span></a></nav></div></div></div>");
+		out.println("<div align=center class=\"container\">");
+
 		// 显示查询用户名表单
 		out.println("<form action=list_user method=post>");
+
 		out.println("<input type=text name=s_un placeholder=请输入用户名 value="
 				+ (s_un == null ? "" : s_un)
 				+ ">");
 		out.println("<input type=submit value=搜索>");
 		out.println("</form>");
 		// 表格显示用户信息列表
-		out.println("<table border>");
+		out.println("<table class=\"table table-hover\">");
 		out.println("<tr><th>序号</th><th>用户名</th>"
 				+ "<th>角色</th><th>电话</th>"
 				+ "<th>地址</th><th>操作</th></tr>");

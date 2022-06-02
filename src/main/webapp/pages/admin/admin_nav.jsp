@@ -14,13 +14,9 @@
 						href="<%=request.getContextPath()%>/list_user">用户管理</a>
 					</li>
 					<li
-						class="nav-item <%="food_t_m".equals(request.getParameter("param_fun")) ? "active" : ""%>">
-						<a class="nav-link" href="#">菜品分类管理</a>
-					</li>
-					<li
 						class="nav-item <%="food_m".equals(request.getParameter("param_fun")) ? "active" : ""%>">
 						<a class="nav-link"
-						href="<%=request.getContextPath()%>/admin/admin_list_food.action">菜品管理</a>
+						href="<%=request.getContextPath()%>/admin/admin_list_food.action">商品管理</a>
 					</li>
 					<li
 						class="nav-item <%="dc_s".equals(request.getParameter("param_fun")) ? "active" : ""%>">

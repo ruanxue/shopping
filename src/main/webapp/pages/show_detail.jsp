@@ -3,7 +3,7 @@
 <html>
 <head>
 <jsp:include page="head.jsp">
-	<jsp:param value="菜品详细信息" name="title" />
+	<jsp:param value="商品详细信息" name="title" />
 </jsp:include>
 <style>
 table.table tr th {
@@ -25,41 +25,42 @@ table.table tr th {
 			<div class="col-md-6 col-12">
 				<table class="table table-hover table-bordered">
 					<tbody>
-						<tr class="table-primary">
-							<th scope="col">菜 名</th>
+
+					<tr class="table-light">
+
+						<td rowspan="9"><img class="img-rounded" alt="Bootstrap Image Preview"
+								 src="<%=food.get("picture")%>" /></td>
+					</tr>
+						<tr class="table-light">
+							<th scope="col">商品名称</th>
 							<td><%=food.get("foodname")%></td>
 						</tr>
-						<tr class="table-secondary">
-							<th scope="row">特 色</th>
+						<tr class="table-light">
+							<th scope="row">简介</th>
 							<td><%=food.get("feature")%></td>
 						</tr>
-						<tr class="table-success">
-							<th scope="row">食 材</th>
+						<tr class="table-light">
+							<th scope="row">型号</th>
 							<td><%=food.get("material")%></td>
 						</tr>
-						<tr class="table-danger">
+						<tr class="table-light">
 							<th scope="row">类 型</th>
 							<td><%=food.get("typename")%></td>
 						</tr>
-						<tr class="table-warning">
+						<tr class="table-light">
 							<th scope="row">价 格</th>
 							<td><%=food.get("price")%>元</td>
 						</tr>
-						<tr class="table-info">
-							<th scope="row">图 片</th>
-							<td><img class="img-rounded" alt="Bootstrap Image Preview"
-								src="<%=food.get("picture")%>" /></td>
-						</tr>
-						<tr class="table-danger">
-							<th scope="row">点 餐 率</th>
+						<tr class="table-light">
+							<th scope="row">购买率</th>
 							<td><%=food.get("hits")%>次</td>
 						</tr>
-						<tr class="table-success">
+						<tr class="table-light">
 							<th scope="row">备 注</th>
 							<td>
 								<%
 									if (food.get("comment").equals("0")) {
-											out.println("厨师推荐");
+											out.println("商城推荐");
 										} else if (food.get("comment").equals("-1")) {
 											out.println("&nbsp;");
 										} else {
@@ -75,7 +76,7 @@ table.table tr th {
 					<input type="hidden" name="ids" value="${food.id }">
 					<div class="form-group">
 						<button type="submit" class="btn btn-danger btn-block">将
-							菜 品 添 加 到 点 餐 车</button>
+							商 品 添 加 到 购 物 车</button>
 					</div>
 				</form>
 			</div>

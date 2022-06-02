@@ -3,7 +3,7 @@
 <html>
 <head>
 <jsp:include page="/pages/head.jsp">
-	<jsp:param value="修改菜品信息" name="title" />
+	<jsp:param value="修改商品信息" name="title" />
 </jsp:include>
 </head>
 <body>
@@ -20,24 +20,24 @@
 			<div class="col-md-8 col-12">
 				<div class="card border-warning">
 					<div class="card-header border-warning bg-warning">
-						<h5 class="text-center">修 改 菜 品</h5>
+						<h5 class="text-center">修 改 商 品</h5>
 					</div>
 					<form role="form" method="post" action="admin_edit_food_do.action"
 						enctype="multipart/form-data">
 						<input type="hidden" name="id" value="<%=food.get("id")%>">
 						<div class="card-body">
 							<div class="form-group">
-								<label for="foodname">菜品名称</label> <input type="text"
+								<label for="foodname">商品名称</label> <input type="text"
 									class="form-control" name="fn" id="foodname"
 									required="required" value="<%=food.get("foodname")%>" />
 							</div>
 							<div class="form-group">
-								<label for="feature">菜品特色</label>
+								<label for="feature">简介</label>
 								<textarea class="form-control" rows="3" name="fea" id="feature"
 									required="required"><%=food.get("feature")%></textarea>
 							</div>
 							<div class="form-group">
-								<label for="material">主要原料</label>
+								<label for="material">型号</label>
 								<textarea class="form-control" rows="3" name="mat" id="material"
 									required="required"><%=food.get("material")%></textarea>
 							</div>
@@ -57,23 +57,23 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<label for="price">菜品价格</label> <input type="number"
+								<label for="price">商品价格</label> <input type="number"
 									class="form-control" name="price" id="price"
 									required="required" value="<%=food.get("price")%>" />
 								<p class="text-info">单位：元</p>
 							</div>
 							<div class="form-group">
-								<label for="img">菜品图片</label> <input type="file" id="img"
+								<label for="img">商品图片</label> <input type="file" id="img"
 									name="img" />
-								<p class="text-info">请选择上传的菜品图片，大小应小于5M，扩展名为jpg,png或gif。</p>
+								<p class="text-info">请选择上传的商品图片，大小应小于5M，扩展名为jpg,png或gif。</p>
 								<img
 									src="<%=request.getContextPath()%>/<%=food.get("picture")%>">
 							</div>
 							<div class="form-group">
-								<label for="comment">菜品备注</label> <input type="text"
+								<label for="comment">商品备注</label> <input type="text"
 									class="form-control" name="com" id="comment"
 									value="<%=food.get("comment")%>" required="required" />
-								<p class="text-info">-1代表正常菜，0代表厨师推荐，正整数代表特价菜价格。</p>
+								<p class="text-info">-1代表正常商品，0代表商城推荐，正整数代表特价商品价格。</p>
 							</div>
 						</div>
 						<div class="card-footer border-warning text-center">
