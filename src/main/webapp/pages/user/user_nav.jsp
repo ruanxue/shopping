@@ -10,11 +10,11 @@
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item <%="index".equals(request.getParameter("fun"))?"active":"" %>">
 						<a class="nav-link"
-						href="<%=request.getContextPath() %>/user/user_index.action">正在点餐</a>
+						href="<%=request.getContextPath() %>/user/user_index.action">正在购买</a>
 					</li>
 					<li class="nav-item <%="show".equals(request.getParameter("fun"))?"active":"" %>">
 						<a class="nav-link"
-						href="<%=request.getContextPath() %>/user/user_show_dc.action">我的点餐</a>
+						href="<%=request.getContextPath() %>/user/user_show_dc.action">我的购物车</a>
 					</li>
 				</ul>
 				<ul class="nav justify-content-end">

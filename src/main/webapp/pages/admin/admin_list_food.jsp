@@ -3,7 +3,7 @@
 <html>
 <head>
 <jsp:include page="/pages/head.jsp">
-	<jsp:param value="管理员管理菜品信息" name="title" />
+	<jsp:param value="管理员管理商品信息" name="title" />
 </jsp:include>
 </head>
 <body>
@@ -71,7 +71,7 @@
 								<td><%=food.get("price")%></td>
 								<td><%=food.get("typename")%></td>
 								<td><img class="img-rounded"
-									src="<%=request.getContextPath()%>/<%=food.get("picture")%>" />
+									src="<%=request.getContextPath()%>/<%=food.get("picture")%>"  width="160" height="160"  />
 								</td>
 								<td><%=food.get("hits")%></td>
 								<td>

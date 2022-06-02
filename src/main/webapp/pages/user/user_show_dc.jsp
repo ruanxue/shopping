@@ -3,7 +3,7 @@
 <html>
 <head>
 <jsp:include page="/pages/head.jsp">
-	<jsp:param value="用户点餐车" name="title" />
+	<jsp:param value="用户购物车" name="title" />
 </jsp:include>
 </head>
 <body>
@@ -50,13 +50,13 @@
 									<td><%=food.get("price")%></td>
 									<td><%=food.get("typename")%></td>
 									<td><img class="img-rounded"
-										src="<%=request.getContextPath()%>/<%=food.get("picture")%>" />
+										src="<%=request.getContextPath()%>/<%=food.get("picture")%>"  width="160" height="160"  />
 									</td>
 									<td><%=food.get("hits")%></td>
 									<td>
 									<%
 										if (food.get("comment").equals("0")) {
-											out.println("厨师推荐");
+											out.println("商城推荐");
 										} else if (food.get("comment").equals("-1")) {
 											out.println("&nbsp;");
 										} else {
@@ -75,7 +75,7 @@
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-danger btn-block">将
-								菜 品 从 点 餐 车 删 除</button>
+								商 品 从 点 餐 车 删 除</button>
 						</div>
 					</form>
 				</div>

@@ -29,7 +29,7 @@ table.table tr th {
 					<tr class="table-light">
 
 						<td rowspan="9"><img class="img-rounded" alt="Bootstrap Image Preview"
-								 src="<%=food.get("picture")%>" /></td>
+								 src="<%=food.get("picture")%>"  width="320" height="320"  /></td>
 					</tr>
 						<tr class="table-light">
 							<th scope="col">商品名称</th>

@@ -3,7 +3,7 @@
 <html>
 <head>
 <jsp:include page="/pages/head.jsp">
-	<jsp:param value="用户点餐列表" name="title" />
+	<jsp:param value="用户购物列表" name="title" />
 </jsp:include>
 </head>
 <body>

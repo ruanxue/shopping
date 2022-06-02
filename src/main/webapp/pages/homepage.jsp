@@ -50,7 +50,7 @@
 						for (Map<String, String> hm : hot) {
 					%>
 					<li class="list-group-item"><img class="img-rounded"
-						src="<%=request.getContextPath() %>/<%=hm.get("picture") %>" />
+						src="<%=request.getContextPath() %>/<%=hm.get("picture") %>" width="160" height="160" />
 						<a
 						href="<%=request.getContextPath() %>/show_detail.action?id=<%=hm.get("id") %>"
 						target="_blank"><%=hm.get("foodname")%></a> &nbsp;&nbsp; <span><%=hm.get("price")%>元</span></li>
@@ -73,7 +73,7 @@
 						for (Map<String, String> hm : special) {
 					%>
 					<li class="list-group-item"><img class="img-rounded"
-						src="<%=request.getContextPath() %>/<%=hm.get("picture") %>" />
+						src="<%=request.getContextPath() %>/<%=hm.get("picture") %>"  width="160" height="160" />
 						<a
 						href="<%=request.getContextPath() %>/show_detail.action?id=<%=hm.get("id") %>"
 						target="_blank"><%=hm.get("foodname")%></a> &nbsp;&nbsp; <span><%=hm.get("comment")%>元</span></li>
@@ -96,7 +96,7 @@
 						for (Map<String, String> hm : recomm) {
 					%>
 					<li class="list-group-item"><img class="img-rounded"
-						src="<%=request.getContextPath() %>/<%=hm.get("picture") %>" />
+						src="<%=request.getContextPath() %>/<%=hm.get("picture") %>"  width="160" height="160"  />
 						<a
 						href="<%=request.getContextPath() %>/show_detail.action?id=<%=hm.get("id") %>"
 						target="_blank"><%=hm.get("foodname")%></a> &nbsp;&nbsp; <span><%=hm.get("price")%>元</span></li>
