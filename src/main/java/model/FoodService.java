@@ -69,6 +69,13 @@ public class FoodService {
 		return db.getPage(sql, params, curPage);
 	}
 	
+	public int addFood(String foodname,String feature,String material,
+			String price,String type,String picture,String comment){
+		String sql = "insert into food values(null,?,?,?,?,?,?,0,?)";
+		return db.update(sql, new String[]{foodname,feature,
+				material,price,type,picture,comment});
+	}
+
 	public int editFood(String foodname,String feature,String material,
 			String price,String type,String picture,String comment,String id){
 		String sql="update food set foodName=?,feature=?,material=?,price=?,type=?";
@@ -84,5 +91,9 @@ public class FoodService {
 					material,price,type,comment,id});
 		}
 	}
-	
+
+	public int delFood(String id) {
+		String sql = "delete from food where id=?";
+		return db.update(sql, new String[]{id});
+	}
 }

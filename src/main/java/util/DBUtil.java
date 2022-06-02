@@ -43,6 +43,7 @@ public class DBUtil {
 		password = "200210wgt";
 	}
 
+	// 初始化方法，加载驱动程序，获得数据库的连接对象。
 	private void init() {
 		try {
 			Class.forName(driver);
@@ -55,6 +56,7 @@ public class DBUtil {
 
 	}
 
+	// 数据库操作对象的关闭
 	private void close() {
 		if (pstmt != null) {
 			try {
@@ -72,6 +74,7 @@ public class DBUtil {
 		}
 	}
 
+	// 为预编译的SQL语句中的占位符?设置值，值被放在字符串数组params中。
 	private void setParams(String[] params) {
 		if (params != null) {
 			for (int i = 0; i < params.length; i++) {
@@ -86,6 +89,7 @@ public class DBUtil {
 		}
 	}
 
+	// 执行更新类（增删改）的SQL语句，SQL语句中含有占位符。
 	public int update(String sql, String[] params) {
 		int result = 0;
 		init();
@@ -101,10 +105,12 @@ public class DBUtil {
 		return result;
 	}
 
+	// 执行更新类（增删改）的SQL语句，SQL语句中不含有占位符。
 	public int update(String sql) {
 		return update(sql, null);
 	}
 
+	// 执行返回多条记录的查询操作，结果被封装到List中。
 	public List<Map<String, String>> getList(String sql, String[] params) {
 		List<Map<String, String>> list = null;
 		init();
@@ -126,6 +132,7 @@ public class DBUtil {
 		return getList(sql, null);
 	}
 
+	// 执行返回至多一条记录的查询操作，结果被封装到Map中。
 	public Map<String, String> getMap(String sql, String[] params) {
 		Map<String, String> m = null;
 		List<Map<String, String>> l = getList(sql, params);
@@ -139,6 +146,7 @@ public class DBUtil {
 		return getMap(sql, null);
 	}
 
+	// 将结果集中的内容封装到List中
 	private List<Map<String, String>> getListFromRS(ResultSet rs) throws SQLException {
 		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 		ResultSetMetaData rsmd = rs.getMetaData();
@@ -156,6 +164,7 @@ public class DBUtil {
 		return list;
 	}
 
+	// 查询结果分页时，返回分页信息的Map，包括总页数，每页记录数和当前页中的记录。
 	public Map<String, Object> getPage(String sql, String[] params, String curPage) {
 		Map<String, Object> page = new HashMap<String, Object>();
 		String newSql = sql + " limit " + (Long.parseLong(curPage) - 1) * PAGE_REC_NUM + "," + PAGE_REC_NUM;
