@@ -17,7 +17,7 @@
 					action="<%=request.getContextPath()%>/admin/admin_list_food.action"
 					method="post">
 					<input type="search" class="form-control mr-sm-2"
-						placeholder="按菜名搜索" name="s_fn"
+						placeholder="按商品名搜索" name="s_fn"
 						value="<%=request.getParameter("s_fn") != null ? request.getParameter("s_fn") : ""%>">
 					<select class="form-control mr-sm-2" name="s_type">
 						<option value="">所有分类</option>

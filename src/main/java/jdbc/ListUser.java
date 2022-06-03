@@ -48,7 +48,7 @@ public class ListUser extends HttpServlet {
 		// 在表格中显示用户信息列表
 		out.println("<div class=\"container-fluid\"><div class=\"row\"><div class=\"col-md-12 col-12\">");
 		out.println("<nav class=\"navbar navbar-expand-lg navbar-light bg-light justify-content-between\">");
-		out.println("<a class=\"navbar-brand\" href=\"homepage.action\"><span class=\"text-info\">网络点餐系统</span></a></nav></div></div></div>");
+		out.println("<a class=\"navbar-brand\" href=\"homepage.action\"><span class=\"text-info\">用户管理</span></a></nav></div></div></div>");
 		out.println("<div align=center class=\"container\">");
 
 		// 显示查询用户名表单
@@ -79,7 +79,6 @@ public class ListUser extends HttpServlet {
 			out.println("</tr>");
 		}
 		out.println("</table>");
-		out.println("返回<a href = homepage.action>首页</a>");
 		out.println("</div>");
 
 	}

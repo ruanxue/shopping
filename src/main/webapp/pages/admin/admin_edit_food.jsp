@@ -67,7 +67,7 @@
 									name="img" />
 								<p class="text-info">请选择上传的商品图片，大小应小于5M，扩展名为jpg,png或gif。</p>
 								<img
-									src="<%=request.getContextPath()%>/<%=food.get("picture")%>">
+									src="<%=request.getContextPath()%>/<%=food.get("picture")%>" width="160" height="160"/>
 							</div>
 							<div class="form-group">
 								<label for="comment">商品备注</label> <input type="text"

@@ -21,7 +21,7 @@
 					<li
 						class="nav-item <%="dc_s".equals(request.getParameter("param_fun")) ? "active" : ""%>">
 						<a class="nav-link"
-						href="<%=request.getContextPath()%>/admin/admin_show_dc.action">查看用户点餐情况</a>
+						href="<%=request.getContextPath()%>/admin/admin_show_dc.action">查看用户购物车情况</a>
 					</li>
 				</ul>
 				<ul class="nav justify-content-end">
